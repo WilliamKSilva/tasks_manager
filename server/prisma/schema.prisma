@@ -16,14 +16,13 @@ model User {
   name     String
   email    String
   password String
+  Tasks Task[]
 
   @@map("users")
-  Tasks Task[]
 }
 
 model Task {
   id String @id @default(uuid())
-
   title       String
   description String
   isActive    Boolean  @default(true)
