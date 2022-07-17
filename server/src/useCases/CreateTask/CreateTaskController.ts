@@ -7,7 +7,8 @@ export class CreateTaskController {
   ){}
   
   async handle(request: Request, response: Response): Promise<Response> {
-    const { title, description, isActive, userId } = request.body;
+    const { title, description, isActive } = request.body;
+    const { userId } = request;
 
     try {
       await this.createTaskUseCase.execute({

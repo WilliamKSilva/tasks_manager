@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { ensureAuthenticateUser } from "./middlewares/ensureAuthenticateUser";
 import { authenticateUserController } from "./useCases/AuthenticateUser";
 import { createTaskController } from "./useCases/CreateTask";
 import { createUserController } from "./useCases/CreateUser";
@@ -6,7 +7,7 @@ import { getAllUsersController } from "./useCases/GetAllUsers";
 
 const router = Router();
 
-router.post('/tasks', (request, response) => {
+router.post('/tasks', ensureAuthenticateUser, (request, response) => {
   return createTaskController.handle(request, response);
 })
 
