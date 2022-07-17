@@ -1,4 +1,5 @@
 import { Router } from "express";
+import { authenticateUserController } from "./useCases/AuthenticateUser";
 import { createTaskController } from "./useCases/CreateTask";
 import { createUserController } from "./useCases/CreateUser";
 
@@ -11,3 +12,9 @@ router.post('/tasks', (request, response) => {
 router.post('/users', (request, response) => {
   return createUserController.handle(request, response)
 })
+
+router.post('/authenticate', (request, response ) => {
+  return authenticateUserController.handle(request, response)
+})
+
+export { router };

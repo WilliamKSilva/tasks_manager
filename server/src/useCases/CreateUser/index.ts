@@ -5,12 +5,12 @@ import { CreateUserUseCase } from "./CreateUserUseCase";
 
 const usersRepository = new UsersRepository();
 
-const createTaskUseCase = new CreateUserUseCase(
+const createUserUseCase = new CreateUserUseCase(
   usersRepository
 )
 
 const createUserController = new CreateUserController(
-  createTaskUseCase
+  createUserUseCase
 )
 
-export { createTaskUseCase, createUserController }
+export { createUserUseCase, createUserController }
