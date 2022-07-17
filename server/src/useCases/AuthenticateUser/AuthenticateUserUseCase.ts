@@ -1,6 +1,7 @@
 import { UsersRepository } from "../../repositories/implementations/UsersRepository";
 import { compare } from 'bcrypt';
 import { sign } from 'jsonwebtoken';
+import { IAuthenticateUserDTO } from "./AuthenticateUserDTO";
 
 
 export class AuthenticateUserUseCase {
@@ -8,7 +9,7 @@ export class AuthenticateUserUseCase {
     private usersRepository: UsersRepository
   ){}
   
-  async execute({ email, password }: IAuthenticateUser) {
+  async execute({ email, password }: IAuthenticateUserDTO) {
     const userAlreadyExists = await this.usersRepository.findByEmail(email);
 
     if (!userAlreadyExists) {
