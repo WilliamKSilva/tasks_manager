@@ -1,5 +1,6 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { ButtonDefault } from '../Button';
+import { PopoverTask } from '../PopoverTask';
 
 export function Header() {
   return (
@@ -12,7 +13,7 @@ export function Header() {
     >
       <Flex justify="space-between" align="center">
         <Text color="white" fontWeight="bold">Your Daily Tasks</Text>
-        <ButtonDefault title="New Task" onClick={() => console.log('teste')} />
+        <PopoverTask />
       </Flex>
     </Box>
   )
