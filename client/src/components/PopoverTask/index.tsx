@@ -1,5 +1,5 @@
 import { useRef } from "react";
-import { Button, Flex, Input, Popover, PopoverContent, PopoverFooter, PopoverHeader, PopoverTrigger, useDisclosure } from "@chakra-ui/react";
+import { Box, Button, Flex, Input, Popover, PopoverContent, PopoverFooter, PopoverHeader, PopoverTrigger, useDisclosure } from "@chakra-ui/react";
 import { ButtonDefault } from "../Button";
 import { PopoverForm } from "../Form";
 import axios from "axios";
@@ -10,7 +10,7 @@ type handleCreateTaskData = {
   description: string;  
 }
 
-export function PopoverTask() {
+const PopoverTask = () => {
   const { onOpen, onClose, isOpen } = useDisclosure();
   const { handleSubmit, register } = useForm();
   const firstFieldRef = useRef(null);
@@ -18,7 +18,6 @@ export function PopoverTask() {
   const access_token = localStorage.getItem('access_token');   
 
   async function handleCreateTask({ title, description }: handleCreateTaskData) {
-    console.log(title, description);
 
     try {
       const response = await axios.post('http://localhost:3333/tasks', {
@@ -47,7 +46,7 @@ export function PopoverTask() {
         closeOnBlur={false}
       >
         <PopoverTrigger>
-          <ButtonDefault title="New Task" onClick={() => console.log('teste')} type="submit" />
+        <Button bg="primary" color="white" type="submit">New Task</Button>
         </PopoverTrigger>
         <PopoverContent p={5} bg="background" borderColor="elevation" as="form" onSubmit={handleSubmit(handleCreateTask)}>
           <PopoverHeader fontSize="md" color="white" borderColor="elevation">
@@ -85,3 +84,5 @@ export function PopoverTask() {
     </>
   )
 }
+
+export { PopoverTask };

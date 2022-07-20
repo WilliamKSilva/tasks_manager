@@ -1,7 +1,7 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
 import { PopoverTask } from '../PopoverTask';
 
-export function Header() {
+const Header = () => {
   return (
     <Box       
       w="100%"                   
@@ -16,3 +16,5 @@ export function Header() {
     </Box>
   )
 }
+
+export { Header };

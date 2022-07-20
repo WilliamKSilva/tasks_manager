@@ -16,6 +16,7 @@ export function useHome() {
           }
         })
 
+        console.log(response.data);
         setAvaiableTasks(response.data);
       } catch(error) {
         console.log(error);
