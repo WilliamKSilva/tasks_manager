@@ -24,7 +24,6 @@ export class TasksRepository implements ITasksRepository {
     return tasks;
   }
 
-
   async save(task: Task): Promise<void> {
     await prismaClient.task.create({
       data: task

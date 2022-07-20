@@ -11,6 +11,10 @@ router.post('/tasks', ensureAuthenticateUser, (request, response) => {
   return createTaskController.handle(request, response);
 })
 
+router.get('/users', ensureAuthenticateUser, (request, response) => {
+  return getAllUsersController.handle(request, response)
+})
+
 router.post('/users', (request, response) => {
   return createUserController.handle(request, response)
 })
