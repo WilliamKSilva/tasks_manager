@@ -1,27 +1,30 @@
 import axios from "axios";
-
-
-type handleCreateTaskData = {
-  title: string;
-  description: string;
-}
+import { useEffect, useState } from "react";
+import { ITasks } from "../../interfaces/tasks";
 
 export function useHome() {
+  const [avaiableTasks, setAvaiableTasks] = useState([] as ITasks[]);
 
-  async function handleCreateTask({ title, description }: handleCreateTaskData) {
-    try {
-      await axios.post('http://localhost:3333/tasks/create-task', {
-        title,
-        description
-      }, 
-      {
-        headers: {
-          Authorization: `Bearer `
-        }
+  const access_token = localStorage.getItem('access_token');
+
+  useEffect(() => {
+    (async function getAvaiableTasks() {
+      try {
+        const response = await axios.get('http://localhost:3333/tasks', {
+          headers: {
+            Authorization: `Bearer ${access_token}`
+          }
+        })
+
+        setAvaiableTasks(response.data);
+      } catch(error) {
+        console.log(error);
       }
-      )
-    } catch(error) {
-      console.log(error);
-    }
+    })()
+  }, []);
+
+  return {
+    avaiableTasks
   }
+  
 }

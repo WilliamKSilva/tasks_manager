@@ -1,18 +1,16 @@
 import { Box, Flex, Text } from '@chakra-ui/react';
-import { ButtonDefault } from '../Button';
 import { PopoverTask } from '../PopoverTask';
 
 export function Header() {
   return (
-    <Box 
-      as="section"
+    <Box       
       w="100%"                   
       borderBottom="1px" 
       borderColor="elevation"       
       padding={4}      
     >
-      <Flex justify="space-between" align="center">
-        <Text color="white" fontWeight="bold">Your Daily Tasks</Text>
+      <Flex as="section" justify={{base: 'space-between', sm: 'center'}} align="center" w="100%" gap={{sm: '40%'}}>
+        <Text color="white" fontWeight="bold" fontSize={{md: '2xl'}}>Your Daily Tasks</Text>
         <PopoverTask />
       </Flex>
     </Box>

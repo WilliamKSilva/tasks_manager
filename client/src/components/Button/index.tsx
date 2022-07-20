@@ -10,11 +10,10 @@ export function ButtonDefault({ title, onClick, type }: ButtonProps) {
   return (
     <Button 
       onClick={() => onClick()} 
-      bg="primary" 
-      size={{base: 'md', lg: 'lg'}} 
+      bg="primary"       
       color="white"
       borderRadius="md"
-      w="27%"
+      w={{base: '27%', sm: '20%', md: '15%', lg: '10%', xl: '7%'}}
       type={type}
     >
       {title}
