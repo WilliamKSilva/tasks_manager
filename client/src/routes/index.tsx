@@ -6,9 +6,8 @@ import Register from "../pages/Register";
 export default function Router() {
   return (
     <Routes>
-      <Route path="/" element={<Login />}>
-      
-      </Route>
+      <Route path="/" element={<Login />} />      
+      <Route path="/home" element={<Home />} />
       <Route path="/register" element={<Register />} />
     </Routes>
   )

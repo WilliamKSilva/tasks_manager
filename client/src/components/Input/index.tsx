@@ -1,6 +1,9 @@
 import { Input as ChakraInput, InputProps as ChakraInputProps } from "@chakra-ui/react";
+import { ForwardRefRenderFunction } from "react";
 
-export const Input = ({ ...rest }: ChakraInputProps) => {
+interface InputProps extends ChakraInputProps {} 
+
+export const Input: ForwardRefRenderFunction<HTMLInputElement, InputProps> = ({ ...rest }, ref: any) => {
   return (
     <>
       <ChakraInput 
@@ -9,6 +12,7 @@ export const Input = ({ ...rest }: ChakraInputProps) => {
         _hover={{
           filter: 'brightness(0.9)'
         }}
+        ref={ref}        
         {...rest} 
       />
     </>

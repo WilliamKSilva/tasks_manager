@@ -9,7 +9,7 @@ export function Header() {
       w="100%"                   
       borderBottom="1px" 
       borderColor="elevation"       
-      padding={5}      
+      padding={4}      
     >
       <Flex justify="space-between" align="center">
         <Text color="white" fontWeight="bold">Your Daily Tasks</Text>

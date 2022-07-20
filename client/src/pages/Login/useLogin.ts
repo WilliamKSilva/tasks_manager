@@ -4,34 +4,31 @@ import { useNavigate } from "react-router-dom";
 type handleRegisterData = {
   email: string;
   password: string;
-  name: string;
 }
 
-export function useRegister() {
-  
+export function useLogin() {
   const navigate = useNavigate();
   
-  async function onRegister({ email, password, name }: handleRegisterData) {    
-    
+  async function onLogin({ email, password }: handleRegisterData) {       
 
     try {
-      await axios.post('http://localhost:3333/users', {
+      const response = await axios.post('http://localhost:3333/authenticate', {
         email,
-        password,
-        name
+        password
       }, {
         headers: {
           'Access-Control-Allow-Origin': '*'
         }
       })
-
-      navigate('/');
+      
+      localStorage.setItem('access_token', response.data);      
+      navigate('/home');
     } catch(error) {
       console.log(error);
     }
   }
 
   return {
-    onRegister
+    onLogin
   }
 }
